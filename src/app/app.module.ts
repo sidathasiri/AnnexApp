@@ -9,10 +9,12 @@ import { HomeComponent } from './Components/HomeComponent/home.component';
 import { NavComponent } from './Components/Shared/Navbar/navbar.component';
 import { FindAnnexComponent } from './Components/FindAnnex/findAnnex.component';
 import { LoginComponent } from './Components/Login/login.component';
+import { SignupComponent } from './Components/Signup/signup.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
+  {path: 'signup', component: SignupComponent},
   {path: 'login', component: LoginComponent},
   {path: 'find', component: FindAnnexComponent}
 ];
@@ -23,7 +25,8 @@ const appRoutes: Routes = [
     HomeComponent,
     NavComponent,
     FindAnnexComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
