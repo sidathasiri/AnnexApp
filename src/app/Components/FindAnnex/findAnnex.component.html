@@ -8,10 +8,7 @@
                 <div class="col-sm-3">
                     <select class="form-control" id="exampleSelect1">
                         <option selected>Any</option>
-                        <option>Western</option>
-                        <option>Southern</option>
-                        <option>North</option>
-                        <option>Eastern</option>
+                        <option *ngFor="let province of provinces">{{province.name}}</option>
                     </select>
                 </div>
             </div>
