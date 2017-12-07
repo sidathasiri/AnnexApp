@@ -6,9 +6,9 @@
             <div class="form-group row">
                 <label for="province" class="col-sm-1 col-form-label">Province</label>
                 <div class="col-sm-3">
-                    <select class="form-control" id="exampleSelect1">
-                        <option selected>Any</option>
-                        <option *ngFor="let province of provinces">{{province.name}}</option>
+                    <select (change)="setProvince($event.target.value)" class="form-control" id="exampleSelect1">
+                        <option selected value="Any">Any</option>
+                        <option *ngFor="let province of provinces" value="{{province.name}}">{{province.name}}</option>
                     </select>
                 </div>
             </div>
@@ -18,10 +18,7 @@
                 <div class="col-sm-3">
                     <select class="form-control" id="exampleSelect1">
                         <option selected>Any</option>
-                        <option>Colombo</option>
-                        <option>Gampaha</option>
-                        <option>Galle</option>
-                        <option>Jaffna</option>
+                        <option *ngFor="let district of currentProvince.districts">{{district}}</option>
                     </select>
                 </div>
             </div>
