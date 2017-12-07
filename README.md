@@ -3,6 +3,9 @@
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
 
 ## Development server
+
+Install node, angular cli, mongodb in local machine
+
 Run `ng build` for deploy angular components to dist. Then run 'node server' to start the node server and visit localhost:3000.
 
 ## Code scaffolding
