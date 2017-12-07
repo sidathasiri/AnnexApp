@@ -10,6 +10,7 @@ import { NavComponent } from './Components/Shared/Navbar/navbar.component';
 import { FindAnnexComponent } from './Components/FindAnnex/findAnnex.component';
 import { LoginComponent } from './Components/Login/login.component';
 import { SignupComponent } from './Components/Signup/signup.component';
+import { DashboardComponent } from './Components/Dashboard/dashboard.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     NavComponent,
     FindAnnexComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
