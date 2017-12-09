@@ -12,7 +12,8 @@ import { LoginComponent } from './Components/Login/login.component';
 import { SignupComponent } from './Components/Signup/signup.component';
 import { DashboardComponent } from './Components/Dashboard/dashboard.component';
 
-import { CommonService } from './Services/common.service'
+import { CommonService } from './Services/common.service';
+import { UserService } from './Services/UserService/user.service';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -38,7 +39,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [CommonService],
+  providers: [CommonService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
