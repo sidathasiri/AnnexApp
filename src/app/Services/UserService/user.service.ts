@@ -12,7 +12,12 @@ export class UserService {
         this.http.post('/api/addUser', user)
         .map(res => res.json())
         .subscribe(res => {
-            resolve(res);
+            if(res.error){
+                reject(res.error);
+            }
+            else{
+                resolve(res);
+            }
         }, err => {
             reject(err);
         });

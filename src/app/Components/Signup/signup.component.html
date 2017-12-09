@@ -22,6 +22,17 @@
             </div>
 
             <button class="btn btn-primary" style="margin-left:470px">Signup</button>
+
+            <div *ngIf="errors && errors.length>0" class="alert alert-danger" style="width:50%; margin-top:5px;">
+                <ul>
+                    <li *ngFor="let error of errors"><p>{{error}}</p></li>
+                </ul>
+            </div>
+
+            <div *ngIf="isSuccess" class="alert alert-success" style="width:50%; margin-top:5px;">
+                <p>You have successfully Signed Up!</p>
+            </div>
+
         </form>
     </div>
 </div>
