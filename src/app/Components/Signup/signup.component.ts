@@ -6,6 +6,7 @@ import { UserService } from '../../Services/UserService/user.service';
 
 @Component({
   selector: 'signup',
+  styleUrls: ['./signup.component.css'],
   templateUrl: './signup.component.html'
 })
 export class SignupComponent {
@@ -24,6 +25,7 @@ export class SignupComponent {
       this.userService.addUser({'email': this.email, 'password':this.password1})
       .then((result) => {
         this.isSuccess = true;
+        this.resetForm();
       }, (err) => {
         this.error = err;
       });
@@ -38,6 +40,12 @@ export class SignupComponent {
       return false;
     }
     return true;
+  }
+
+  resetForm(){
+    this.email = '';
+    this.password1 = '';
+    this.password2 = '';
   }
 
 

@@ -11,6 +11,9 @@
                 <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
                 <div class="col-sm-4">
                     <input required [(ngModel)]="password1" name="password1" type="password" class="form-control" placeholder="Password">
+                    <div *ngIf="password1.length<4 && password1.length>0" class="alert alert-danger msg-indicator">
+                        <p>Password is too short</p>
+                    </div>
                 </div>
             </div>
 
@@ -18,16 +21,22 @@
                 <label for="inputPassword2" class="col-sm-2 col-form-label">Re-Password</label>
                 <div class="col-sm-4">
                     <input required [(ngModel)]="password2" name="password2" type="password" class="form-control" placeholder="Re-Password">
+                    <div *ngIf="password1!=password2 && password2.length>0" class="alert alert-danger msg-indicator">
+                        <p>Passwords do not match</p>
+                    </div>
+                    <div *ngIf="password1==password2 && password2.length>0" class="alert alert-success msg-indicator">
+                        <p>Passwords match!</p>
+                    </div>
                 </div>
             </div>
 
             <button [disabled]="password1!=password2 || password1.length<4" class="btn btn-primary" style="margin-left:470px">Signup</button>
 
-            <div *ngIf="error && error.length>0" class="alert alert-danger" style="width:50%; margin-top:5px;">
+            <div *ngIf="error && error.length>0" class="alert alert-danger validation-box">
                 <p>{{error}}</p>
             </div>
 
-            <div *ngIf="isSuccess" class="alert alert-success" style="width:50%; margin-top:5px;">
+            <div *ngIf="isSuccess" class="alert alert-success validation-box">
                 <p>You have successfully Signed Up!</p>
             </div>
         </form>

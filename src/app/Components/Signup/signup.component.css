@@ -1,0 +1,11 @@
+.msg-indicator{
+    width:100%; 
+    padding: 3px; 
+    height: 40px; 
+    margin-top:5px;
+}
+
+.validation-box{
+    width:50%; 
+    margin-top:5px;
+}
