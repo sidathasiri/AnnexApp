@@ -20,14 +20,25 @@ export class SignupComponent {
   signup(){
     this.errors = [];
     this.isSuccess = false;
-    this.userService.addUser({'email': this.email, 'password':this.password1})
-    .then((result) => {
-      this.isSuccess = true;
-    }, (err) => {
-      this.errors.push(err);
-      console.log(this.errors.length);
-    });
+    if(this.isPasswordsSame()){
+      this.userService.addUser({'email': this.email, 'password':this.password1})
+      .then((result) => {
+        this.isSuccess = true;
+      }, (err) => {
+        this.errors.push(err);
+        console.log(this.errors.length);
+      });
+    } else {
+      this.errors.push("Passwords do not match!");
+    }
 
+  }
+
+  isPasswordsSame(): boolean{
+    if(this.password1 != this.password2){
+      return false;
+    }
+    return true;
   }
 
 
