@@ -17,10 +17,23 @@ router.get('/province', function(req, res, next){
 router.post('/addUser', function(req, res, next){
     console.log('in add user');
     console.log(req.body);
-    User.create(req.body, function(err, post){
+
+    User.findOne({'email': req.body.email}, function(err, user){
         if(err)
             return next(err);
-        res.json(post);
+        if(user){
+            console.log("User already exists!");
+            res.send({'error':'User already exists!'});
+        } else{
+            var newUser = new User();
+            newUser.email = req.body.email;
+            newUser.password = newUser.generateHash(req.body.password);
+            newUser.save(function(err, user){
+                if(err)
+                    return next(err);
+                res.json(user);
+            });
+        }
     });
 });
 
