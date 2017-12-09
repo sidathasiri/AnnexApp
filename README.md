@@ -4,9 +4,13 @@ This project was generated with [angular-cli](https://github.com/angular/angular
 
 ## Development server
 
-Install node, angular cli, mongodb in local machine
-
-Run `ng build` for deploy angular components to dist. Then run 'node server' to start the node server and visit localhost:3000.
+1. Install node, angular cli, mongodb in local machine.
+2. Run 'npm install -g nodemon'
+3. Run 'npm install -g @angular/cli'
+4. Set up MongoDB (db name 'AnnexApp')
+5. Run 'ng build'
+6. Run 'nodemon server.js'
+7. Visit 'localhost:3000'
 
 ## Code scaffolding
 
