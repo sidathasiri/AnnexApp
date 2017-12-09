@@ -1,10 +1,10 @@
 <div class="jumbotron jumbotron-fluid">
     <div class="container" style="margin-left:30%">
-        <form (ngSubmit)="signup()" validate>
+        <form (ngSubmit)="signup()">
             <div class="form-group row">
                 <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-4">
-                    <input required [(ngModel)]="email" name="email" type="text" class="form-control" placeholder="Email">
+                    <input required [(ngModel)]="email" name="email" type="email" class="form-control" placeholder="Email">
                 </div>
             </div>
             <div class="form-group row">
@@ -21,18 +21,15 @@
                 </div>
             </div>
 
-            <button class="btn btn-primary" style="margin-left:470px">Signup</button>
+            <button [disabled]="password1!=password2 || password1.length<4" class="btn btn-primary" style="margin-left:470px">Signup</button>
 
-            <div *ngIf="errors && errors.length>0" class="alert alert-danger" style="width:50%; margin-top:5px;">
-                <ul>
-                    <li *ngFor="let error of errors"><p>{{error}}</p></li>
-                </ul>
+            <div *ngIf="error && error.length>0" class="alert alert-danger" style="width:50%; margin-top:5px;">
+                <p>{{error}}</p>
             </div>
 
             <div *ngIf="isSuccess" class="alert alert-success" style="width:50%; margin-top:5px;">
                 <p>You have successfully Signed Up!</p>
             </div>
-
         </form>
     </div>
 </div>
