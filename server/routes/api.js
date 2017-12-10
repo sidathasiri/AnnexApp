@@ -15,14 +15,10 @@ router.get('/province', function(req, res, next){
 });
 
 router.post('/addUser', function(req, res, next){
-    console.log('in add user');
-    console.log(req.body);
-
     User.findOne({'email': req.body.email}, function(err, user){
         if(err)
             return next(err);
         if(user){
-            console.log("User already exists!");
             res.send({'error':'User already exists!'});
         } else{
             var newUser = new User();
@@ -36,5 +32,35 @@ router.post('/addUser', function(req, res, next){
         }
     });
 });
+
+router.post('/login', function(req, res, next){
+    User.findOne({'email': req.body.email}, function(err, user){
+        if(err)
+            return next(err);
+        if(!user){
+            res.send({'error':'Wrong email or password!'});
+        } else{
+            if(!user.validPassword(req.body.password)){
+                res.send({'error':'Wrong email or password!'});
+            } else{
+                res.send(user);
+                console.log('you can login');
+            }
+        }
+    });
+});
+
+router.get('/getUser/:email', function(req, res, next){
+    User.findOne({'email': req.params.email}, function(err, user){
+        if(err){
+            next(err);
+        }
+        else{
+            res.send(user);
+        }
+    });
+});
+
+
 
 module.exports = router;

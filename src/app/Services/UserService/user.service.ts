@@ -24,4 +24,34 @@ export class UserService {
     });
   }
 
+  login(user: any){
+    return new Promise((resolve, reject)=>{
+        this.http.post('/api/login', user)
+        .map(res => res.json())
+        .subscribe(res => {
+            if(res.error){
+                reject(res.error);
+            } else{
+                resolve(res);
+            }
+        }, err => {
+            reject(err);
+        });
+    });
+  }
+  
+  getUser(email: string){
+      return new Promise((resolve, reject)=>{
+          this.http.get('/api/getUser/'+email)
+          .map(res => res.json())
+          .subscribe((res)=>{
+            resolve(res);
+          }, err => {
+              reject(err);
+          })
+      });
+  }
+
+
+
 }
