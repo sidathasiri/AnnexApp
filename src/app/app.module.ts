@@ -11,6 +11,7 @@ import { FindAnnexComponent } from './Components/FindAnnex/findAnnex.component';
 import { LoginComponent } from './Components/Login/login.component';
 import { SignupComponent } from './Components/Signup/signup.component';
 import { DashboardComponent } from './Components/Dashboard/dashboard.component';
+import { AddNewComponent } from './Components/AddNew/addNew.component';
 
 import { CommonService } from './Services/common.service';
 import { UserService } from './Services/UserService/user.service';
@@ -21,7 +22,8 @@ const appRoutes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'login', component: LoginComponent},
   {path: 'find', component: FindAnnexComponent},
-  {path: 'dashboard', component: DashboardComponent}
+  {path: 'dashboard', component: DashboardComponent},
+  {path: 'addNew', component: AddNewComponent}
 ];
 
 @NgModule({
@@ -32,7 +34,8 @@ const appRoutes: Routes = [
     FindAnnexComponent,
     LoginComponent,
     SignupComponent,
-    DashboardComponent
+    DashboardComponent,
+    AddNewComponent
   ],
   imports: [
     BrowserModule,
