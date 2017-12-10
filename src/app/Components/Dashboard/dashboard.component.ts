@@ -13,10 +13,7 @@ export class DashboardComponent implements OnInit{
   currentUser: any;
 
   ngOnInit(){
-    this.route.params.subscribe((params)=>{
-      this.currentUser = params;
-      this.currentUser = this.currentUser.email;
-    });
+    this.currentUser = this.userService.getLoggedUser();
   }
 
 }

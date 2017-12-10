@@ -19,7 +19,7 @@ export class LoginComponent {
     this.error = '';
     this.userService.login({'email': this.email, 'password': this.password})
     .then(res => {
-      this.router.navigate(['/dashboard', {'email': this.email}]);
+      this.router.navigate(['/dashboard']);
     }, err => {
       this.error = err;
     });
