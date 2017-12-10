@@ -26,6 +26,9 @@ export class UserService {
             }
             else{
                 resolve(res);
+                this.isLoggedIn = true;
+                this.subject.next({loggedStatus: true});
+                this.currentUser = res.email;
             }
         }, err => {
             reject(err);

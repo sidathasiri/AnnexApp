@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {Response} from '@angular/http';
+import { Router } from '@angular/router';
 
 import { UserService } from '../../Services/UserService/user.service';
 
@@ -16,7 +17,7 @@ export class SignupComponent {
   error: string = null;
   isSuccess: boolean = false; 
 
-  constructor(private userService: UserService){}
+  constructor(private userService: UserService, private router: Router){}
 
   signup(){
     this.error = null;
@@ -26,6 +27,7 @@ export class SignupComponent {
       .then((result) => {
         this.isSuccess = true;
         this.resetForm();
+        this.router.navigate(['/dashboard', {'email': this.email}]);
       }, (err) => {
         this.error = err;
       });
