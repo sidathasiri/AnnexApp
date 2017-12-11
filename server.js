@@ -1,4 +1,6 @@
 var express = require('express');
+const cors = require('cors');
+var multer = require('multer');
 var path = require('path');
 var mongoose = require('mongoose');
 
@@ -9,7 +11,21 @@ var api = require('./server/routes/api');
 const PORT = 3000;
 var DB = "mongodb://localhost/AnnexApp";
 
+var upload = multer({
+    storage: multer.diskStorage({
+      destination: (req, file, cb) => {
+        cb(null, __dirname + '/uploads/')
+      },
+      filename: (req, file, cb) => {
+        let ext = path.extname(file.originalname);
+        cb(null, `${Math.random().toString(36).substring(7)}${ext}`);
+      }
+    })
+  });
+
 var app = express();
+
+app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
@@ -26,6 +42,19 @@ mongoose.connect(DB, function(error){
         return error
     console.log("connected to "+DB);
 });
+
+app.post('/upload', upload.any(), (req, res) => {
+    console.log('in uploading');
+    res.json(req.files.map(file => {
+      let ext = path.extname(file.originalname);
+      console.log(req.files);
+      return {
+        originalName: file.originalname,
+        filename: file.filename,
+        path: file.path
+      }
+    }));
+  });
 
 app.listen(PORT, function(err){
     if(err)

@@ -71,10 +71,35 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <label for="image1" class="col-sm-1 col-form-label">Image1</label>
-                        <input type="file" [(ngModel)]="img1" name="img1" class="form-control">
+                        <input type="file"
+                        ngFileSelect
+                        class="form-control"
+                        [options]="options"
+                        (onUpload)="handleUpload($event)"
+                        (beforeUpload)="beforeUpload($event)">
                     </div>
                 </div>
+
                 <div class="row">
+                    <style>
+                        .file-over { border: dotted 3px red; } /* Default class applied to drop zones on over */
+                      </style> 
+                      <div ngFileDrop
+                           [options]="options"
+                           (onUpload)="handleUpload($event)"
+                           [ngClass]="{'file-over': hasBaseDropZoneOver}"
+                           (onFileOver)="fileOverBase($event)"
+                           (beforeUpload)="beforeUpload($event)">
+                      </div>
+                       
+                      <div *ngFor="let file of uploadFile">
+                        <img src="file.path">
+                      </div>
+                </div>
+
+                
+
+                <!-- <div class="row">
                     <div class="col-sm-4">
                         <label for="image2" class="col-sm-1 col-form-label">Image2</label>
                         <input type="file" [(ngModel)]="img2" name="img2" class="form-control">
@@ -85,7 +110,7 @@
                         <label for="image2" class="col-sm-1 col-form-label">Image3</label>
                         <input type="file" name="img3" [(ngModel)]="img3" class="form-control">
                     </div>
-                </div>
+                </div> -->
 
             </div>
 
