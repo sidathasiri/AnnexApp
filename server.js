@@ -11,6 +11,8 @@ var api = require('./server/routes/api');
 const PORT = 3000;
 var DB = "mongodb://localhost/AnnexApp";
 
+var Post = require('./server/models/post');
+
 var upload = multer({
     storage: multer.diskStorage({
       destination: (req, file, cb) => {
@@ -43,16 +45,25 @@ mongoose.connect(DB, function(error){
     console.log("connected to "+DB);
 });
 
-app.post('/upload', upload.any(), (req, res) => {
+app.post('/uploadPost', upload.any(), (req, res) => {
     console.log('in uploading');
     res.json(req.files.map(file => {
       let ext = path.extname(file.originalname);
       console.log(req.files[0].path);
       console.log(req.body);
+
+      var post = new Post(req.body);
+      post.save(function(err, result){
+          if(err){
+              next(err);
+          } else{
+              console.log(result);
+          }
+      });
+
       return {
         originalName: file.originalname,
-        filename: file.filename,
-        path: file.path
+        filename: file.filename
       }
     }));
   });

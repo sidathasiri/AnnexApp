@@ -34,9 +34,6 @@ export class AddNewComponent implements OnInit{
   gender: string = 'male';
   price: string;
   description: string;
-  img1: string;
-  img2: string;
-  img3: string;
 
   ngOnInit(){
     this.commonService.getProvinces()
@@ -68,9 +65,6 @@ export class AddNewComponent implements OnInit{
       'gender': this.gender,
       'price': this.price,
       'description': this.description,
-      'img1': this.img1,
-      'img2': this.img2,
-      'img3': this.img3,
       'user': this.userService.getLoggedUser()
     };
     console.log(this.post);
@@ -121,11 +115,21 @@ export class AddNewComponent implements OnInit{
   }
  
   startUpload(): void {
+    this.post = {
+      'name': this.name,
+      'province': this.province,
+      'disctrict': this.district,
+      'gender': this.gender,
+      'price': this.price,
+      'description': this.description,
+      'user': this.userService.getLoggedUser()
+    };
+
     const event: UploadInput = {
       type: 'uploadAll',
-      url: 'http://localhost:3000/upload',
+      url: 'http://localhost:3000/uploadPost',
       method: 'POST',
-      data: { foo: 'bar' }
+      data: this.post
     };
  
     this.uploadInput.emit(event);
