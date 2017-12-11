@@ -134,6 +134,7 @@ export class AddNewComponent implements OnInit{
  
     this.uploadInput.emit(event);
     console.log(this.files[0]);
+    this.router.navigate(['dashboard']);
   }
  
   cancelUpload(id: string): void {

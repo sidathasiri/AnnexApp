@@ -1,0 +1,14 @@
+.myCard{
+    cursor: pointer;
+    margin-top: 15px; 
+    width: 20rem; 
+    display: inline-block; 
+    margin-left: 15px; 
+    min-height: 100px;
+    transition: box-shadow 0.7s;
+}
+
+.myCard:hover{
+    cursor: pointer;
+    box-shadow: 8px 8px 35px grey;
+}
