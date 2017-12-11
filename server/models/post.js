@@ -9,7 +9,8 @@ var postSchema = mongoose.Schema({
     description: String,
     img1: String,
     img2: String,
-    img3: String
+    img3: String,
+    user: String
 });
 
 module.exports = mongoose.model('Post', postSchema, 'posts');

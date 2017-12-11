@@ -11,7 +11,11 @@ import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
   templateUrl: './addNew.component.html'
 })
 export class AddNewComponent implements OnInit{
-  constructor(private commonService: CommonService, private postService: PostService){}
+  constructor(
+    private commonService: CommonService, 
+    private postService: PostService,
+    private userService: UserService
+  ){}
 
   post: any;
   provinces: any[];
@@ -59,7 +63,8 @@ export class AddNewComponent implements OnInit{
       'description': this.description,
       'img1': this.img1,
       'img2': this.img2,
-      'img3': this.img3
+      'img3': this.img3,
+      'user': this.userService.getLoggedUser()
     };
     console.log(this.post);
     this.postService.addPost(this.post)
