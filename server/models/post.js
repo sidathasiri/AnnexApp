@@ -8,7 +8,7 @@ var postSchema = mongoose.Schema({
     price: Number,
     description: String,
     user: String,
-    images: []
+    images: String
 });
 
 module.exports = mongoose.model('Post', postSchema, 'posts');

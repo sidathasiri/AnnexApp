@@ -4,7 +4,7 @@
 
 <div class="container">
   <div *ngFor="let post of posts" class="card" style="width: 20rem; display: inline-block; margin-left: 15px; min-height: 100px; margin-top: 15px">
-    <img class="card-img-top" src="/uploads/9bn6dl.jpg"
+    <img class="card-img-top" [src]="post.images"
       alt="Card image cap">
     <div class="card-body">
       <h4 class="card-title">{{post.name}}</h4>

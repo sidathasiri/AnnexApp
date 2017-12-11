@@ -86,14 +86,11 @@ router.get('/getPosts/:email', function(req, res, next){
     });
 });
 
-router.post('/uploadPost', upload.any(), (req, res) => {
+router.post('/uploadPost', upload.any(), (req, res, next) => {
     console.log('in uploading');
     res.json(req.files.map(file => {
       let ext = path.extname(file.originalname);
-      req.body.images = req.files
-      console.log(req.files[0].path);
-      console.log(req.body);
-
+      req.body.images = req.files[0].destination.substring(8) + '/' + req.files[0].filename;
       var post = new Post(req.body);
       post.save(function(err, result){
           if(err){
