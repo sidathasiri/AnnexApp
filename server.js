@@ -47,7 +47,8 @@ app.post('/upload', upload.any(), (req, res) => {
     console.log('in uploading');
     res.json(req.files.map(file => {
       let ext = path.extname(file.originalname);
-      console.log(req.files);
+      console.log(req.files[0].path);
+      console.log(req.body);
       return {
         originalName: file.originalname,
         filename: file.filename,

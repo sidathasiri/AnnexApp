@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
-import { Ng2UploaderModule } from 'ng2-uploader';
+import { NgUploaderModule } from 'ngx-uploader';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './Components/HomeComponent/home.component';
@@ -43,7 +43,7 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    Ng2UploaderModule,
+    NgUploaderModule,
     RouterModule.forRoot(appRoutes),
   ],
   providers: [CommonService, UserService, PostService],
