@@ -15,6 +15,7 @@ import { AddNewComponent } from './Components/AddNew/addNew.component';
 
 import { CommonService } from './Services/common.service';
 import { UserService } from './Services/UserService/user.service';
+import { PostService } from './Services/PostService/post.service';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -43,7 +44,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [CommonService, UserService],
+  providers: [CommonService, UserService, PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

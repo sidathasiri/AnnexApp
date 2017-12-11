@@ -4,6 +4,7 @@ var path = require('path');
 
 var Province = require('../models/province'); 
 var User = require('../models/user'); 
+var Post = require('../models/post');
 
 router.get('/province', function(req, res, next){
     Province.find((err, result) =>{
@@ -57,6 +58,18 @@ router.get('/getUser/:email', function(req, res, next){
         }
         else{
             res.send(user);
+        }
+    });
+});
+
+router.post('/addPost', function(req, res, next){
+    var post = new Post();
+    post = req.body;
+    post.save(function(err, result){
+        if(err){
+            next(err);
+        } else{
+            res.send(result);
         }
     });
 });
