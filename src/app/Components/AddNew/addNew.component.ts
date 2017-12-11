@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { UserService } from '../../Services/UserService/user.service';
 import { PostService } from '../../Services/PostService/post.service';
@@ -15,6 +16,16 @@ export class AddNewComponent implements OnInit{
   post: any;
   provinces: any[];
   currentProvince: any = {};
+
+  name: string;
+  province: string = 'Any';
+  district: string;
+  gender: string = 'male';
+  price: string;
+  description: string;
+  img1: string;
+  img2: string;
+  img3: string;
 
   ngOnInit(){
     this.commonService.getProvinces()
@@ -38,8 +49,25 @@ export class AddNewComponent implements OnInit{
   }
 
   addPost(){
-    console.log("post details");
+
+    this.post = {
+      'name': this.name,
+      'province': this.province,
+      'disctrict': this.district,
+      'gender': this.gender,
+      'price': this.price,
+      'description': this.description,
+      'img1': this.img1,
+      'img2': this.img2,
+      'img3': this.img3
+    };
     console.log(this.post);
+    this.postService.addPost(this.post)
+    .then((res) => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+    });
   }
 
 

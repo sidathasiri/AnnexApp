@@ -2,7 +2,7 @@
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container" style="margin-left:30%">
-        <form (ngSubmit)="login()">
+        <form (ngSubmit)="addPost()">
             <div class="form-group row">
                 <label for="name" class="col-sm-1 col-form-label">Name</label>
                 <div class="col-sm-4">
@@ -13,7 +13,7 @@
             <div class="form-group row">
                 <label for="province" class="col-sm-1 col-form-label">Province</label>
                 <div class="col-sm-3">
-                    <select (change)="setProvince($event.target.value)" class="form-control" id="exampleSelect1">
+                    <select (change)="setProvince($event.target.value)" [(ngModel)]="province" name="province" class="form-control">
                         <option selected value="Any">Any</option>
                         <option *ngFor="let province of provinces" value="{{province.name}}">{{province.name}}</option>
                     </select>
@@ -23,7 +23,7 @@
             <div class="form-group row">
                 <label for="district" class="col-sm-1 col-form-label">District</label>
                 <div class="col-sm-3">
-                    <select class="form-control" id="exampleSelect1">
+                    <select class="form-control" name="district" [(ngModel)]="district">
                         <option selected>Any</option>
                         <option *ngFor="let district of currentProvince.districts">{{district}}</option>
                     </select>
@@ -35,15 +35,15 @@
                 <div class="col-sm-4">
                     <div class="radio">
                         <label>
-                            <input type="radio" name="gender" checked>Male</label>
+                            <input checked type="radio" value="male" name="gender" [(ngModel)]="gender">Male</label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="gender">Female</label>
+                            <input type="radio" value="female" name="gender" [(ngModel)]="gender">Female</label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="gender">Any</label>
+                            <input type="radio" value="any" name="gender" [(ngModel)]="gender">Any</label>
                     </div>
                 </div>
             </div>
@@ -58,7 +58,7 @@
             <div class="form-group row">
                 <label for="description" class="col-sm-1 col-form-label">Description</label>
                 <div class="col-sm-5">
-                    <textarea class="form-control" rows="8" cols="8"></textarea>
+                    <textarea class="form-control" name="description" [(ngModel)]="description" rows="8" cols="8"></textarea>
                 </div>
             </div>
 
@@ -71,19 +71,19 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <label for="image1" class="col-sm-1 col-form-label">Image1</label>
-                        <input type="file" name="img1" class="form-control">
+                        <input type="file" [(ngModel)]="img1" name="img1" class="form-control">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-4">
                         <label for="image2" class="col-sm-1 col-form-label">Image2</label>
-                        <input type="file" name="img2" class="form-control">
+                        <input type="file" [(ngModel)]="img2" name="img2" class="form-control">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-4">
                         <label for="image2" class="col-sm-1 col-form-label">Image3</label>
-                        <input type="file" name="img3" class="form-control">
+                        <input type="file" name="img3" [(ngModel)]="img3" class="form-control">
                     </div>
                 </div>
 

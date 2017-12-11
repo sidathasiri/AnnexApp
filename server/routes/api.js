@@ -63,8 +63,7 @@ router.get('/getUser/:email', function(req, res, next){
 });
 
 router.post('/addPost', function(req, res, next){
-    var post = new Post();
-    post = req.body;
+    var post = new Post(req.body);
     post.save(function(err, result){
         if(err){
             next(err);
