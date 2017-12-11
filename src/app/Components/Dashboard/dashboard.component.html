@@ -1,20 +1,14 @@
-<h1>Welcome <small>{{currentUser}}</small></h1>
+<h1>Welcome
+  <small>{{currentUser}}</small>
+</h1>
 
 <div class="container">
-    <!-- <div *ngFor="let post of posts" class="card mb-3">
-        <img class="card-img-top" style="max-height: 250px" src="http://www.gettyimages.com/gi-resources/images/frontdoor/creative/LonelyPlanetRM/Slide_2.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h4 class="card-title">{{post.name}}</h4>
-          <p class="card-text">{{post.description}}</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-      </div> -->
-
-      <div *ngFor="let post of posts" class="card" style="width: 20rem; display: inline-block; margin-left: 15px; min-height: 100px; margin-top: 15px">
-        <img class="card-img-top" src="http://www.gettyimages.com/gi-resources/images/frontdoor/creative/LonelyPlanetRM/Slide_2.jpg" alt="Card image cap">
-        <div class="card-body">
-            <h4 class="card-title">{{post.name}}</h4>
-          <p class="card-text">{{post.description}}</p>
-        </div>
-      </div>
+  <div *ngFor="let post of posts" class="card" style="width: 20rem; display: inline-block; margin-left: 15px; min-height: 100px; margin-top: 15px">
+    <img class="card-img-top" src="http://www.gettyimages.com/gi-resources/images/frontdoor/creative/LonelyPlanetRM/Slide_2.jpg"
+      alt="Card image cap">
+    <div class="card-body">
+      <h4 class="card-title">{{post.name}}</h4>
+      <p class="card-text">{{post.description}}</p>
+    </div>
+  </div>
 </div>
