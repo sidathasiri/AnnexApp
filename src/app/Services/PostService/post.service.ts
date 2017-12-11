@@ -19,4 +19,16 @@ export class PostService {
     });
   }
 
+  getPosts(email: string){
+      return new Promise((resolve, reject) => {
+        this.http.get('/api/getPosts/'+email)
+        .map(res => res.json())
+        .subscribe(res => {
+            resolve(res);
+        }, err => {
+            reject(err);
+        });
+      });
+  }
+
 }

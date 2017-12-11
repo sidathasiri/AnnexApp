@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { UserService } from '../../Services/UserService/user.service';
 import { PostService } from '../../Services/PostService/post.service';
@@ -14,7 +15,8 @@ export class AddNewComponent implements OnInit{
   constructor(
     private commonService: CommonService, 
     private postService: PostService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ){}
 
   post: any;
@@ -70,6 +72,7 @@ export class AddNewComponent implements OnInit{
     this.postService.addPost(this.post)
     .then((res) => {
       console.log(res);
+      this.router.navigate(['/dashboard']);
     }, err => {
       console.log(err);
     });

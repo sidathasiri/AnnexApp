@@ -73,6 +73,16 @@ router.post('/addPost', function(req, res, next){
     });
 });
 
+router.get('/getPosts/:email', function(req, res, next){
+    Post.find({'user': req.params.email}, function(err, result){
+        if(err){
+            next(err);
+        } else{
+            res.send(result);
+        }
+    });
+});
+
 
 
 module.exports = router;
