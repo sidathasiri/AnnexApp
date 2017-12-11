@@ -21,6 +21,7 @@ export class NavComponent implements OnInit{
 
   logout(){
     this.userService.logout();
+    this.activeLink = 'Home';
   }
 
   setActive(link:string){

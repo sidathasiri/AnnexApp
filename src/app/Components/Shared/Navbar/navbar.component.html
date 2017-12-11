@@ -10,7 +10,7 @@
         <li class="{{activeLink == 'Home'? 'nav-item active': 'nav-item'}}">
           <a (click)="setActive('Home')" class="nav-link" routerLink="/home">Home</a>
         </li>
-        <li class="{{activeLink == 'Find'? 'nav-item active': 'nav-item'}}">
+        <li class="{{activeLink == 'Find Annex'? 'nav-item active': 'nav-item'}}">
           <a (click)="setActive('Find Annex')" class="nav-link" routerLink="/find">Find Annex</a>
         </li>
         <li *ngIf="isUserLoggedIn" class="{{activeLink == 'Add new'? 'nav-item active': 'nav-item'}}">
