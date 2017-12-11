@@ -13,18 +13,6 @@ var DB = "mongodb://localhost/AnnexApp";
 
 var Post = require('./server/models/post');
 
-var upload = multer({
-    storage: multer.diskStorage({
-      destination: (req, file, cb) => {
-        cb(null, __dirname + '/uploads/')
-      },
-      filename: (req, file, cb) => {
-        let ext = path.extname(file.originalname);
-        cb(null, `${Math.random().toString(36).substring(7)}${ext}`);
-      }
-    })
-  });
-
 var app = express();
 
 app.use(cors());
@@ -44,30 +32,6 @@ mongoose.connect(DB, function(error){
         return error
     console.log("connected to "+DB);
 });
-
-app.post('/uploadPost', upload.any(), (req, res) => {
-    console.log('in uploading');
-    res.json(req.files.map(file => {
-      let ext = path.extname(file.originalname);
-      req.body.images = req.files
-      console.log(req.files[0].path);
-      console.log(req.body);
-
-      var post = new Post(req.body);
-      post.save(function(err, result){
-          if(err){
-              next(err);
-          } else{
-              console.log(result);
-          }
-      });
-
-      return {
-        originalName: file.originalname,
-        filename: file.filename
-      }
-    }));
-  });
 
 app.listen(PORT, function(err){
     if(err)

@@ -127,7 +127,7 @@ export class AddNewComponent implements OnInit{
 
     const event: UploadInput = {
       type: 'uploadAll',
-      url: 'http://localhost:3000/uploadPost',
+      url: 'http://localhost:3000/api/uploadPost',
       method: 'POST',
       data: this.post
     };

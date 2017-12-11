@@ -1,10 +1,24 @@
 var express = require('express');
+var multer = require('multer');
 var router = express.Router();
 var path = require('path');
 
 var Province = require('../models/province'); 
 var User = require('../models/user'); 
 var Post = require('../models/post');
+
+var upload = multer({
+    storage: multer.diskStorage({
+      destination: (req, file, cb) => {
+        cb(null, './public/uploads');
+      },
+      filename: (req, file, cb) => {
+        let ext = path.extname(file.originalname);
+        cb(null, `${Math.random().toString(36).substring(7)}${ext}`);
+      }
+    })
+  });
+
 
 router.get('/province', function(req, res, next){
     Province.find((err, result) =>{
@@ -62,17 +76,6 @@ router.get('/getUser/:email', function(req, res, next){
     });
 });
 
-router.post('/addPost', function(req, res, next){
-    var post = new Post(req.body);
-    post.save(function(err, result){
-        if(err){
-            next(err);
-        } else{
-            res.send(result);
-        }
-    });
-});
-
 router.get('/getPosts/:email', function(req, res, next){
     Post.find({'user': req.params.email}, function(err, result){
         if(err){
@@ -82,6 +85,30 @@ router.get('/getPosts/:email', function(req, res, next){
         }
     });
 });
+
+router.post('/uploadPost', upload.any(), (req, res) => {
+    console.log('in uploading');
+    res.json(req.files.map(file => {
+      let ext = path.extname(file.originalname);
+      req.body.images = req.files
+      console.log(req.files[0].path);
+      console.log(req.body);
+
+      var post = new Post(req.body);
+      post.save(function(err, result){
+          if(err){
+              next(err);
+          } else{
+              console.log(result);
+          }
+      });
+
+      return {
+        originalName: file.originalname,
+        filename: file.filename
+      }
+    }));
+  });
 
 
 
