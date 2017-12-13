@@ -52,8 +52,8 @@ export class DashboardComponent implements OnInit{
     })
   }
 
-  editPost(){
-      
+  editPost(post: any){
+      this.router.navigate(['/editPost', post]);
   }
 
 

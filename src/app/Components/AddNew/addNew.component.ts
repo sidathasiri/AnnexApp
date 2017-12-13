@@ -41,7 +41,7 @@ export class AddNewComponent implements OnInit{
       this.provinces = provinces;
     }, err => {
       console.log(err);
-    })
+    });
   }
 
   setProvince(province: string) {
@@ -118,12 +118,15 @@ export class AddNewComponent implements OnInit{
     this.post = {
       'name': this.name,
       'province': this.province,
-      'disctrict': this.district,
+      'district': this.district,
       'gender': this.gender,
       'price': this.price,
       'description': this.description,
       'user': this.userService.getLoggedUser()
     };
+
+    console.log("before savinggggg");
+    console.log(this.post);
 
     const event: UploadInput = {
       type: 'uploadAll',

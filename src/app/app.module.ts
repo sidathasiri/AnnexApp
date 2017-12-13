@@ -14,6 +14,7 @@ import { SignupComponent } from './Components/Signup/signup.component';
 import { DashboardComponent } from './Components/Dashboard/dashboard.component';
 import { AddNewComponent } from './Components/AddNew/addNew.component';
 import { PostDetailsComponent } from './Components/PostDetails/postDetails.component';
+import { EditPostComponent } from './Components/EditPost/editPost.component';
 
 import { CommonService } from './Services/common.service';
 import { UserService } from './Services/UserService/user.service';
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
   {path: 'find', component: FindAnnexComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'postDetails', component: PostDetailsComponent},
+  {path: 'editPost', component: EditPostComponent},
   {path: 'addNew', component: AddNewComponent}
 ];
 
@@ -43,6 +45,7 @@ const appRoutes: Routes = [
     DashboardComponent,
     AddNewComponent,
     PostDetailsComponent,
+    EditPostComponent,
     LengthTrimePipe,
   ],
   imports: [
