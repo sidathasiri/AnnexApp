@@ -19,6 +19,8 @@ import { CommonService } from './Services/common.service';
 import { UserService } from './Services/UserService/user.service';
 import { PostService } from './Services/PostService/post.service';
 
+import { LengthTrimePipe } from './Pipes/lengthTrimPipe';
+
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
@@ -40,7 +42,8 @@ const appRoutes: Routes = [
     SignupComponent,
     DashboardComponent,
     AddNewComponent,
-    PostDetailsComponent
+    PostDetailsComponent,
+    LengthTrimePipe,
   ],
   imports: [
     BrowserModule,

@@ -36,4 +36,13 @@ export class DashboardComponent implements OnInit{
     this.router.navigate(['/postDetails', post]);
   }
 
+  deletePost(post: any){
+    console.log(post);
+  }
+
+  editPost(){
+    
+  }
+
+
 }

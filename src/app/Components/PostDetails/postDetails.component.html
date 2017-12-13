@@ -1,10 +1,10 @@
 <div class="card text-center">
     <div class="card-header">
-      {{post.name}} Details
+        {{ post.name }} Details
     </div>
     <div class="card-body">
       <h4 class="card-title">{{post.name}}</h4>
-      <img [src]="post.images" style="width:40%" />
+      <img class="img-thumbnail" [src]="post.images" style="width:40%; box-shadow: 3px 3px 15px grey; margin-bottom: 10px" />
       <p class="card-text" style="color: #797a7c">{{post.description}}</p>
       <br>
     </div>
