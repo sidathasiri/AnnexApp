@@ -25,7 +25,7 @@
                 <div class="col-sm-3">
                     <select class="form-control" name="district" [(ngModel)]="district">
                         <option selected>Any</option>
-                        <option *ngFor="let district of currentProvince.districts">{{district}}</option>
+                        <option *ngFor="let d of currentProvince.districts">{{d}}</option>
                     </select>
                 </div>
             </div>

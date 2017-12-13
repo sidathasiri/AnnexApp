@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import { Router,ActivatedRoute } from "@angular/router";
 
 import { PostService } from '../../Services/PostService/post.service';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
@@ -14,7 +14,8 @@ export class PostDetailsComponent implements OnInit{
 
   constructor(
     private postService: PostService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ){}
 
   ngOnInit(){
@@ -22,6 +23,10 @@ export class PostDetailsComponent implements OnInit{
         this.post = params;
         console.log(params);
     });
+  }
+
+  goBack(){
+      this.router.navigate(['/dashboard']);
   }
   
 

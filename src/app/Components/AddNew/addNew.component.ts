@@ -61,7 +61,7 @@ export class AddNewComponent implements OnInit{
     this.post = {
       'name': this.name,
       'province': this.province,
-      'disctrict': this.district,
+      'district': this.district,
       'gender': this.gender,
       'price': this.price,
       'description': this.description,
