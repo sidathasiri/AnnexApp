@@ -107,6 +107,17 @@ router.post('/uploadPost', upload.any(), (req, res, next) => {
     }));
   });
 
+router.delete('/deletePost/:id', function(req, res, next){
+    console.log(req.params.id);
+    Post.remove({'_id': req.params.id}, (err, result) => {
+        if(err){
+            next(err);
+        }
+        else{
+            res.send(result);
+        }
+    });
+});
 
 
 module.exports = router;

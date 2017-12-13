@@ -29,7 +29,7 @@ export class DashboardComponent implements OnInit{
       console.log(this.posts);
     }, (err) => {
       console.log(err);
-    })
+    });
   }
 
   viewDetails(post: any){
@@ -38,10 +38,22 @@ export class DashboardComponent implements OnInit{
 
   deletePost(post: any){
     console.log(post);
+    this.postService.deletePost(post)
+    .then(res => {
+      this.postService.getPosts(this.currentUser)
+      .then((posts) => {
+        this.posts = posts;
+        console.log(this.posts);
+      }, (err) => {
+        console.log(err);
+      });
+    }, err => {
+      console.log("delete error");
+    })
   }
 
   editPost(){
-    
+      
   }
 
 

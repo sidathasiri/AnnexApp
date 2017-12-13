@@ -31,4 +31,16 @@ export class PostService {
       });
   }
 
+deletePost(post: any){
+    return new Promise((resolve, reject)=>{
+        this.http.delete('/api/deletePost/'+post._id)
+        .map(res => res.json())
+        .subscribe(res => {
+            resolve(res);
+        }, err => {
+            reject(err);
+        });
+    });
+}
+
 }
