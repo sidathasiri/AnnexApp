@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
+import { Router } from '@angular/router';
 
 import { UserService } from '../../Services/UserService/user.service';
 import { PostService } from '../../Services/PostService/post.service';
@@ -14,7 +15,8 @@ export class DashboardComponent implements OnInit{
   constructor(
     private route: ActivatedRoute, 
     private userService: UserService,
-    private postService: PostService
+    private postService: PostService,
+    private router: Router
   ){}
   currentUser: any;
   posts: any;
@@ -28,6 +30,10 @@ export class DashboardComponent implements OnInit{
     }, (err) => {
       console.log(err);
     })
+  }
+
+  viewDetails(post: any){
+    this.router.navigate(['/postDetails', post]);
   }
 
 }

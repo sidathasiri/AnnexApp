@@ -13,6 +13,7 @@ import { LoginComponent } from './Components/Login/login.component';
 import { SignupComponent } from './Components/Signup/signup.component';
 import { DashboardComponent } from './Components/Dashboard/dashboard.component';
 import { AddNewComponent } from './Components/AddNew/addNew.component';
+import { PostDetailsComponent } from './Components/PostDetails/postDetails.component';
 
 import { CommonService } from './Services/common.service';
 import { UserService } from './Services/UserService/user.service';
@@ -25,6 +26,7 @@ const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'find', component: FindAnnexComponent},
   {path: 'dashboard', component: DashboardComponent},
+  {path: 'postDetails', component: PostDetailsComponent},
   {path: 'addNew', component: AddNewComponent}
 ];
 
@@ -37,7 +39,8 @@ const appRoutes: Routes = [
     LoginComponent,
     SignupComponent,
     DashboardComponent,
-    AddNewComponent
+    AddNewComponent,
+    PostDetailsComponent
   ],
   imports: [
     BrowserModule,

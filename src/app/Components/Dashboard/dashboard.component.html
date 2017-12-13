@@ -3,7 +3,7 @@
 </h1>
 
 <div class="container">
-  <div class="myCard" *ngFor="let post of posts">
+  <div class="myCard" *ngFor="let post of posts" (click)="viewDetails(post)">
     <div class="card" style="width: 20rem">
       <img class="card-img-top" [src]="post.images"
         alt="Card image cap"
