@@ -129,6 +129,7 @@ router.put('/updatePost', function(req, res, next){
         }
         else {
             console.log(result);
+            res.send(result);
         }
     });
 });

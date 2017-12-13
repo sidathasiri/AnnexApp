@@ -84,6 +84,7 @@ export class EditPostComponent implements OnInit{
     this.postService.updatePost(updatedPost)
     .then(res => {
         console.log(res);
+        this.router.navigate(['/dashboard']);
     }, err => {
         console.log(err);
     });
