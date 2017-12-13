@@ -119,5 +119,19 @@ router.delete('/deletePost/:id', function(req, res, next){
     });
 });
 
+router.put('/updatePost', function(req, res, next){
+    console.log("updatinggggg");
+    var newPost = req.body;
+    console.log(newPost);
+    Post.findByIdAndUpdate(newPost._id, { $set: newPost}, (err, result) => {
+        if(err){
+            console.log(err);
+        }
+        else {
+            console.log(result);
+        }
+    });
+});
+
 
 module.exports = router;

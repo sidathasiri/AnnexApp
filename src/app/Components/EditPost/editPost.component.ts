@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router,ActivatedRoute } from "@angular/router";
+import {NgForm} from '@angular/forms';
 
 import { PostService } from '../../Services/PostService/post.service';
 import { CommonService } from '../../Services/common.service';
@@ -14,6 +15,14 @@ export class EditPostComponent implements OnInit{
     post: any;
     provinces: any[];
     currentProvince: any = {};
+
+    //form inputs
+    name: string;
+    province: string = 'Any';
+    district: string;
+    gender: string = 'male';
+    price: string;
+    description: string;
         
   constructor(
     private postService: PostService,
@@ -25,6 +34,12 @@ export class EditPostComponent implements OnInit{
         this.post = params;
         console.log("posttttt");
         console.log(this.post.province);
+        this.name = this.post.name;
+        this.province = this.post.province;
+        this.district = this.post.district;
+        this.gender = this.post.gender;
+        this.price = this.post.price;
+        this.description = this.post.description;
         
     });
   }
@@ -54,7 +69,24 @@ export class EditPostComponent implements OnInit{
   }
 
   updatePost(){
-
+    console.log("post data");
+    var updatedPost = {
+        'description': this.description,
+        'district': this.district,
+        'gender': this.gender,
+        'images': this.post.images,
+        'name': this.name,
+        'price': this.price,
+        'province': this.province,
+        'user': this.post.user,
+        '_id': this.post._id 
+    }
+    this.postService.updatePost(updatedPost)
+    .then(res => {
+        console.log(res);
+    }, err => {
+        console.log(err);
+    });
   }
 
   goBack(){

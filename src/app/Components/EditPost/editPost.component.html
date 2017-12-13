@@ -1,19 +1,19 @@
 <div class="container">
     <h3 style="margin-top: 10px">Edit details for
-        <b>{{post.name}}</b> post</h3>
+        <b>{{post.name}}</b></h3>
 
-    <form (ngSubmit)="updatePost()">
+    <form>
         <div class="form-group row">
             <label for="name" class="col-sm-1 col-form-label">Name</label>
             <div class="col-sm-4">
-                <input required [(ngModel)]="post.name" name="name" type="text" class="form-control">
+                <input required [(ngModel)]="name" name="name" type="text" class="form-control">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="province" class="col-sm-1 col-form-label">Province</label>
             <div class="col-sm-3">
-                <select (change)="setProvince($event.target.value)" [(ngModel)]="post.province" name="province" class="form-control">
+                <select (change)="setProvince($event.target.value)" [(ngModel)]="province" name="province" class="form-control">
                     <option selected value="Any">Any</option>
                     <option [selected]="province==post.province" *ngFor="let province of provinces" value="{{province.name}}">{{province.name}}</option>
                 </select>
@@ -23,7 +23,7 @@
         <div class="form-group row">
             <label for="district" class="col-sm-1 col-form-label">District</label>
             <div class="col-sm-3">
-                <select class="form-control" name="district" [(ngModel)]="post.district">
+                <select class="form-control" name="district" [(ngModel)]="district">
                     <option selected>Any</option>
                     <option [selected]="d==post.district" *ngFor="let d of currentProvince.districts">{{d}}</option>
                 </select>
@@ -35,15 +35,15 @@
             <div class="col-sm-4">
                 <div class="radio">
                     <label>
-                        <input checked type="radio" value="male" name="gender" [(ngModel)]="post.gender">Male</label>
+                        <input checked type="radio" value="male" name="gender" [(ngModel)]="gender">Male</label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" value="female" name="gender" [(ngModel)]="post.gender">Female</label>
+                        <input type="radio" value="female" name="gender" [(ngModel)]="gender">Female</label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" value="any" name="gender" [(ngModel)]="post.gender">Any</label>
+                        <input type="radio" value="any" name="gender" [(ngModel)]="gender">Any</label>
                 </div>
             </div>
         </div>
@@ -51,19 +51,19 @@
         <div class="form-group row">
             <label for="price" class="col-sm-1 col-form-label">Price(Rs.)</label>
             <div class="col-sm-2">
-                <input required [(ngModel)]="post.price" name="price" type="number" class="form-control">
+                <input required [(ngModel)]="price" name="price" type="number" class="form-control">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="description" class="col-sm-1 col-form-label">Description</label>
             <div class="col-sm-5">
-                <textarea class="form-control" name="description" [(ngModel)]="post.description" rows="8" cols="8"></textarea>
+                <textarea class="form-control" name="description" [(ngModel)]="description" rows="8" cols="8"></textarea>
             </div>
         </div>
 
-        <button type="button" style="margin-left:100px; width: 350px" class="btn btn-sm btn-primary">
-            Add
+        <button type="button" (click)="updatePost()" style="margin-left:100px; width: 350px" class="btn btn-sm btn-primary">
+            Update
         </button>
 
         <div *ngIf="error && error.length>0" class="alert alert-danger" style="width: 50%; margin-top:5px;">
