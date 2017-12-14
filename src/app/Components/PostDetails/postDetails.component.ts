@@ -26,7 +26,11 @@ export class PostDetailsComponent implements OnInit{
   }
 
   goBack(){
+    if(this.post.view != 'find')
       this.router.navigate(['/dashboard']);
+    else
+    this.router.navigate(['/find']);
+
   }
   
 

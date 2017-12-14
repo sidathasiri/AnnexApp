@@ -68,7 +68,8 @@ export class FindAnnexComponent implements OnInit {
   }
 
   viewDetails(post: any){
-    this.router.navigate(['/postDetails', post]);
+    post.view = 'find';
+    this.router.navigate(['/postDetails', post ]);
   }
 
 }
