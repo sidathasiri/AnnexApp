@@ -6,7 +6,7 @@
             <div class="form-group row">
                 <label for="province" class="col-sm-1 col-form-label">Province</label>
                 <div class="col-sm-3">
-                    <select (change)="setProvince($event.target.value)" class="form-control" id="exampleSelect1">
+                    <select (change)="setProvince($event.target.value)" name="province" [(ngModel)]="province" class="form-control" >
                         <option selected value="Any">Any</option>
                         <option *ngFor="let province of provinces" value="{{province.name}}">{{province.name}}</option>
                     </select>
@@ -16,7 +16,7 @@
             <div class="form-group row">
                 <label for="district" class="col-sm-1 col-form-label">District</label>
                 <div class="col-sm-3">
-                    <select class="form-control" id="exampleSelect1">
+                    <select class="form-control" [(ngModel)]="district" name="district">
                         <option selected>Any</option>
                         <option *ngFor="let district of currentProvince.districts">{{district}}</option>
                     </select>
@@ -28,15 +28,15 @@
                 <div class="col-sm-4">
                     <div class="radio">
                         <label>
-                            <input type="radio" name="gender" checked>Male</label>
+                            <input checked type="radio" value="male" name="gender" [(ngModel)]="gender">Male</label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="gender">Female</label>
+                            <input type="radio" value="female" name="gender" [(ngModel)]="gender">Female</label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="gender">Any</label>
+                            <input type="radio" value="any" name="gender" [(ngModel)]="gender">Any</label>
                     </div>
                 </div>
             </div>
@@ -44,4 +44,20 @@
             <button class="btn btn-primary" style="margin-left:170px" (click)="search()" >Search</button>
         </form>
     </div>
+</div>
+
+<!-- search results -->
+
+<div *ngIf="posts" class="container">
+    <div class="myCard" *ngFor="let post of posts">
+        <div class="card" style="width: 20rem" (click)="viewDetails(post)">
+          <img class="card-img-top" [src]="post.images"
+            alt="Card image cap"
+            style="min-height: 15rem">
+          <div class="card-body" style="min-height: 150px">
+            <h4 class="card-title">{{post.name}}</h4>
+            <p class="card-text"> {{ post.description | lengthTrimPipe }}</p>
+          </div>
+        </div>
+      </div>
 </div>

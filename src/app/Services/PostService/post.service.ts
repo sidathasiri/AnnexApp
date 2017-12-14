@@ -55,4 +55,16 @@ export class PostService {
         });
     }
 
+    fetchPosts(post: any){
+        return new Promise((resolve, reject)=>{
+            this.http.post('/api/findPosts', post)
+            .map(res => res.json())
+            .subscribe(res => {
+                resolve(res);
+            }, err => {
+                reject(err);
+            });
+        });
+    }
+
 }

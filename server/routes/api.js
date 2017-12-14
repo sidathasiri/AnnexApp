@@ -134,5 +134,17 @@ router.put('/updatePost', function(req, res, next){
     });
 });
 
+router.post('/findPosts', function(req, res, next){
+    Post.find(req.body, (err, result) => {
+        if(err){
+            console.log(err);
+            next(err);
+        } else{
+            console.log(result);
+            res.send(result);
+        }
+    });
+});
+
 
 module.exports = router;

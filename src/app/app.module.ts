@@ -15,7 +15,6 @@ import { DashboardComponent } from './Components/Dashboard/dashboard.component';
 import { AddNewComponent } from './Components/AddNew/addNew.component';
 import { PostDetailsComponent } from './Components/PostDetails/postDetails.component';
 import { EditPostComponent } from './Components/EditPost/editPost.component';
-import { SearchResultsComponent } from './Components/SearchResults/searchResults.component';
 
 import { CommonService } from './Services/common.service';
 import { UserService } from './Services/UserService/user.service';
@@ -32,7 +31,6 @@ const appRoutes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
   {path: 'postDetails', component: PostDetailsComponent},
   {path: 'editPost', component: EditPostComponent},
-  {path: 'search-results', component: SearchResultsComponent},
   {path: 'addNew', component: AddNewComponent}
 ];
 
@@ -48,7 +46,6 @@ const appRoutes: Routes = [
     AddNewComponent,
     PostDetailsComponent,
     EditPostComponent,
-    SearchResultsComponent,
     LengthTrimePipe
   ],
   imports: [

@@ -1,18 +1,30 @@
 import { Component } from '@angular/core';
 import { CommonService } from '../../Services/common.service';
+import { PostService } from '../../Services/PostService/post.service';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import { Router } from "@angular/router";
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'find-annex',
   templateUrl: './findAnnex.component.html',
+  styleUrls: ['./findAnnex.component.css']
 })
 export class FindAnnexComponent implements OnInit {
 
+  posts: any;
   provinces: any[];
   currentProvince: any = {};
 
-  constructor(private commonService: CommonService, private router:Router) { }
+  province: string = 'Any';
+  district: string = 'Any';
+  gender: string = 'any';
+  
+  constructor(
+    private commonService: CommonService, 
+    private router:Router,
+    private postService: PostService
+  ) { }
 
   ngOnInit() {
     this.commonService.getProvinces()
@@ -32,7 +44,31 @@ export class FindAnnexComponent implements OnInit {
   }
 
   search(){
-    this.router.navigate(['/search-results']);
+    var formData = {
+      'province': this.province,
+      'district': this.district,
+      'gender': this.gender
+    };
+
+    if(this.province=='Any')
+      delete formData.province;
+    if(this.district=='Any')
+      delete formData.district;
+    if(this.gender=='any')
+      delete formData.gender;
+    console.log(formData);
+    this.postService.fetchPosts(formData)
+    .then(res => {
+      this.posts = res;
+      console.log(res);
+    }, err => {
+      console.log(err);
+    });
+   // this.router.navigate(['/search-results']);
+  }
+
+  viewDetails(post: any){
+    this.router.navigate(['/postDetails', post]);
   }
 
 }
