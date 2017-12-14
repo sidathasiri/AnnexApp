@@ -54,8 +54,10 @@ export class FindAnnexComponent implements OnInit {
       delete formData.province;
     if(this.district=='Any')
       delete formData.district;
-    if(this.gender=='any')
+    if(this.gender=='any'){
       delete formData.gender;
+      formData['$or'] = [{'gender': 'male'}, {'gender': 'female'}, {'gender': 'any'}];
+    }
     console.log(formData);
     this.postService.fetchPosts(formData)
     .then(res => {
