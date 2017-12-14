@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonService } from '../../Services/common.service';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'find-annex',
@@ -11,7 +12,7 @@ export class FindAnnexComponent implements OnInit {
   provinces: any[];
   currentProvince: any = {};
 
-  constructor(private commonService: CommonService) { }
+  constructor(private commonService: CommonService, private router:Router) { }
 
   ngOnInit() {
     this.commonService.getProvinces()
@@ -28,6 +29,10 @@ export class FindAnnexComponent implements OnInit {
         }
       }
     }
+  }
+
+  search(){
+    this.router.navigate(['/search-results']);
   }
 
 }
