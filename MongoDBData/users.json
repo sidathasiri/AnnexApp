@@ -1,0 +1,44 @@
+[
+{ 
+    "_id" : ObjectId("5a2cead09d8ec120085aea9c"), 
+    "password" : "$2a$08$seN.yZwoEc7qzynRtTl6YuaBX58wHgCXoFL5mjAAOuIO5zTX2z4AG", 
+    "email" : "sidath@gmail.com", 
+    "__v" : NumberInt(0)
+},
+{ 
+    "_id" : ObjectId("5a2ceafe9d8ec120085aea9d"), 
+    "password" : "$2a$08$mBhZX16XZXJ7uCIIGUTvoeLNrJBkdIlXgyKuOQDnRKo5ZhAZs9QhW", 
+    "email" : "ishara@gmail.com", 
+    "__v" : NumberInt(0)
+},
+{ 
+    "_id" : ObjectId("5a2cec2468b3dd26fc009148"), 
+    "password" : "$2a$08$7mvQgG32xmBaz6GhXVANS.AcgQBRcvkGzEph/i/AK6CeQ1tCSfZCi", 
+    "email" : "vajira@gmail.com", 
+    "__v" : NumberInt(0)
+},
+{ 
+    "_id" : ObjectId("5a2ced1527e697140c459e4c"), 
+    "password" : "$2a$08$YPOkDNN5wi.3CQyrGakrkOCLn4WaJJeDJaqlrLgXQRcbTqSMQZwlC", 
+    "email" : "banda@g.com", 
+    "__v" : NumberInt(0)
+},
+{ 
+    "_id" : ObjectId("5a2cf2f527e697140c459e4d"), 
+    "password" : "$2a$08$ETpGLntrO.dzJvsYYPn3qemxxjF9u3DTnF5UnwCTmXaPs1DBZJgS2", 
+    "email" : "sidath@gmail.comm", 
+    "__v" : NumberInt(0)
+},
+{ 
+    "_id" : ObjectId("5a2d209eaef9d10ca0573240"), 
+    "password" : "$2a$08$r4OH0RQq1IqpUn55w2PYdO5Qp3ureHXlcR2srU2kYo7FywMnvhHL.", 
+    "email" : "yd@gmail.com", 
+    "__v" : NumberInt(0)
+},
+{ 
+    "_id" : ObjectId("5a2df9ee5ed32212348cd55b"), 
+    "password" : "$2a$08$2eWXWQpkeVoIv5cTFPJfH.MnWsbCaybrJ36atWvVkreY5qSWfZdo2", 
+    "email" : "arosha@gmail.com", 
+    "__v" : NumberInt(0)
+}
+]

@@ -1,0 +1,81 @@
+[
+{ 
+    "_id" : ObjectId("5a295b83fa07c07d7d348765"), 
+    "name" : "Western", 
+    "districts" : [
+        "Colombo", 
+        "Gampaha", 
+        "Kalutara"
+    ]
+},
+{ 
+    "_id" : ObjectId("5a29636bfa07c07d7d348766"), 
+    "name" : "Central", 
+    "districts" : [
+        "Kandy", 
+        "Matale", 
+        "Nuwara Eliya"
+    ]
+},
+{ 
+    "_id" : ObjectId("5a2963b0fa07c07d7d348767"), 
+    "name" : "Eastern", 
+    "districts" : [
+        "Ampara", 
+        "Batticaloa", 
+        "Trincomalee"
+    ]
+},
+{ 
+    "_id" : ObjectId("5a2963dafa07c07d7d348768"), 
+    "name" : "Northern", 
+    "districts" : [
+        "Jaffna", 
+        "Kilinichchi", 
+        "Mannar", 
+        "Mullaitivu", 
+        "Vavuniya"
+    ]
+},
+{ 
+    "_id" : ObjectId("5a2963f0fa07c07d7d348769"), 
+    "name" : "Southern", 
+    "districts" : [
+        "Galle", 
+        "Matara", 
+        "Hambantota"
+    ]
+},
+{ 
+    "_id" : ObjectId("5a29640bfa07c07d7d34876a"), 
+    "name" : "North Central", 
+    "districts" : [
+        "Anuradhapura", 
+        "Polonnaruwa"
+    ]
+},
+{ 
+    "_id" : ObjectId("5a29641efa07c07d7d34876b"), 
+    "name" : "Uva", 
+    "districts" : [
+        "Badulla", 
+        "Moneragala"
+    ]
+},
+{ 
+    "_id" : ObjectId("5a29644ffa07c07d7d34876c"), 
+    "name" : "Sabaragamuwa", 
+    "districts" : [
+        "Kegalle", 
+        "Ratnapura"
+    ]
+},
+{ 
+    "_id" : ObjectId("5a296466fa07c07d7d34876d"), 
+    "name" : "North Western", 
+    "districts" : [
+        "Kurunegala", 
+        "Puttalam"
+    ]
+}
+]

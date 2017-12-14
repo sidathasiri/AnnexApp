@@ -1,0 +1,50 @@
+[
+{ 
+    "_id" : ObjectId("5a30e10fb8aabe2cb034204c"), 
+    "name" : "Annex for boys", 
+    "province" : "North Central", 
+    "district" : "Polonnaruwa", 
+    "gender" : "male", 
+    "price" : NumberInt(5000), 
+    "description" : "Large room for rent in double storey house at Kottawa,close to Highway entrance. 5 min walk to High level Road,138 Bus route. Tiled floor ,Desk and chair,Wardrobe,Ceiling Fan.Shared bathroom and kitchen . One month advance needed. Prefer working lady", 
+    "user" : "sidath@gmail.com", 
+    "images" : "/uploads/q6g51q.jpg", 
+    "__v" : NumberInt(0)
+},
+{ 
+    "_id" : ObjectId("5a30e1b824630122445184f6"), 
+    "name" : "Annex for anyone", 
+    "province" : "Western", 
+    "district" : "Colombo", 
+    "gender" : "any", 
+    "price" : NumberInt(5500), 
+    "description" : "Rooms available for Girls at Malabe.- pittugala .(Electricity & water Bills Included for Monthly Rental.)attached bathroom , separate entrance , Parking Space Available. walking distance to SLIIT (100m) & 177 bus route(50m) , no cooking facilities 077739", 
+    "user" : "sidath@gmail.com", 
+    "images" : "/uploads/xoeivj.jpg", 
+    "__v" : NumberInt(0)
+},
+{ 
+    "_id" : ObjectId("5a3118b4b2f3b82464eb8a68"), 
+    "name" : "Bodim for Boys", 
+    "province" : "Western", 
+    "district" : "Colombo", 
+    "gender" : "male", 
+    "price" : NumberInt(5500), 
+    "description" : "Separate rooms for boys available in Dangolla road, Kandy Closer to Colombo Kandy main road, Water board, University of Peradeniya, Courts Complex Single room with attached bathroom 1 bed and table - Rs 10,000 per mo", 
+    "user" : "ishara@gmail.com", 
+    "images" : "/uploads/szavnt.jpg", 
+    "__v" : NumberInt(0)
+},
+{ 
+    "_id" : ObjectId("5a324fcb2029ab16d09931a1"), 
+    "name" : "Annex for anyone", 
+    "province" : "Southern", 
+    "district" : "Galle", 
+    "gender" : "any", 
+    "price" : NumberInt(5500), 
+    "description" : "New Anex for rent, uit for Hospitle staff or Company Executives,", 
+    "user" : "ishara@gmail.com", 
+    "images" : "/uploads/tmck3k.jpg", 
+    "__v" : NumberInt(0)
+}
+]
