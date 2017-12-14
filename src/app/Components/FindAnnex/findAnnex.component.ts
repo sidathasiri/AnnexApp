@@ -47,7 +47,7 @@ export class FindAnnexComponent implements OnInit {
     var formData = {
       'province': this.province,
       'district': this.district,
-      'gender': this.gender
+      '$or': [{'gender': this.gender}, {'gender': 'any'}]
     };
 
     if(this.province=='Any')
@@ -55,7 +55,6 @@ export class FindAnnexComponent implements OnInit {
     if(this.district=='Any')
       delete formData.district;
     if(this.gender=='any'){
-      delete formData.gender;
       formData['$or'] = [{'gender': 'male'}, {'gender': 'female'}, {'gender': 'any'}];
     }
     console.log(formData);
